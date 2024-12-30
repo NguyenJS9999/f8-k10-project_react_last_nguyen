@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+	--black: #000;
+	--white: #fff;
+	--primary-red: #ad1023;
+	--secondary-red: #d70018;
+	/* --secondary-red: #AD1023; */
+	--border-color: #ededed;
+	--background-homepage: #f7f8fa;
+	--color-attr: #333;
+	--color-old-price: #707070;
+	--rate-color: #f59e0b;
+}
+#root {
+	min-height: 101vh;
+	/* border: 1px solid red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Inter', serif;
+}
+
+body {
+	margin: 0;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+/* form {
+	width: 400px;
+	max-width: 100%;
+	margin: 100px auto;
+	border: 1px solid #ccc;
+	border-radius: 12px;
+	box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.2);
+	padding: 40px;
+} */
+
+.app-component {
+	min-height: 101vh;
+	/* border: 1px solid gray; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.pages-elements {
+	width: 100%;
+	/* border: 1px solid red; */
+	padding: 1rem 0;
+	background-color: var(--background-homepage);
+	flex: 1;
+	display: flex;
+}
+.pages-elements-inner {
+	border: 1px solid var(--border-color);
+	border-radius: 0.25rem;
+	width: 100%;
+	flex: 1;
+}

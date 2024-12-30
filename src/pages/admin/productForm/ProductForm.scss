@@ -1,0 +1,13 @@
+
+.product-form-action  {
+    margin-top: 1rem;
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+
+    & button {
+        color: var(--black)
+    }
+
+}
