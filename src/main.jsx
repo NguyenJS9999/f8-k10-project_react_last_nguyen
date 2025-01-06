@@ -1,14 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import App from "./App.jsx";
-import "./index.css";
-import store from "./store/store.js";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import App from './App.jsx';
+import './index.css';
+import store from './store/store.js';
+import { BrowserRouter } from 'react-router-dom';
+import 'antd/dist/reset.css'; // Import CSS từ Ant Design
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
 		</Provider>
 	</React.StrictMode>
 );

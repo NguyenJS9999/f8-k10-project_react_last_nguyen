@@ -1,22 +1,24 @@
-import instance from ".";
+import instance from '.';
 
-export const getAllProducts = async () => {
-	const { data } = await instance.get("/products");
-	return data;
+const handleRequest = async (callback) => {
+	try {
+		const res = await callback();
+		return res.data; // Trả về dữ liệu
+	} catch (error) {
+		// console.log('handleRequest error:', error);
+		if (error.response) {
+			// console.error('Request error response:', error.response.data);
+			return error.response; // Trả về dữ liệu lỗi
+		} else {
+			// console.error('Request error:', error.message);
+			return { message: error.message }; // Trả về dữ liệu lỗi
+		}
+		// throw error;
+	}
 };
 
-export const addProduct = async (product) => {
-	const { data } = await instance.post("/products", product);
-	return data;
-};
-
-export const deleteProduct = async (id) => {
-	const res = await instance.delete(`/products/${id}`);
-	// Logic return sẽ thay đổi sau khi thay đổi services
-	return res.ok;
-};
-
-export const updateProduct = async (id, product) => {
-	const { data } = await instance.patch(`/products/${id}`, product);
-	return data;
-};
+export const getAllProducts = (params = {}) => handleRequest(() => instance.get('/products', { params }));
+export const getOneProduct = (id) => handleRequest(() => instance.get(`/products/${id}`));
+export const addProduct = (product) => handleRequest(() => instance.post('/products', product));
+export const updateProduct = (id, product) => handleRequest(() => instance.patch(`/products/${id}`, product));
+export const deleteProduct = (id) => handleRequest(() => instance.delete(`/products/${id}`));

@@ -1,9 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { addProduct, getAllProducts, updateProduct } from "../../services/productServices";
+import { addProduct, deleteProduct, getAllProducts, getOneProduct, updateProduct } from "../../services/productServices";
 
-export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
-	return await getAllProducts();
+export const fetchProducts = createAsyncThunk("products/fetchProducts", async (params) => {
+	return await getAllProducts(params);
 });
+
+export const fetchProductById = createAsyncThunk( "products/fetchProductById", async (id) => {
+	// console.log("fetchProductById id: ", id);
+	return await getOneProduct(id);
+}
+);
 
 export const createProduct = createAsyncThunk("products/createProduct", async (product) => {
 	return await addProduct(product);

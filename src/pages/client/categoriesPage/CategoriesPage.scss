@@ -1,0 +1,128 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.pagination li {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination li a {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination li.active a {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination li a:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination-component {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#pageSize {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    height: 100%;
+    padding: 5.8px 0.5rem;
+
+}
+
+.product-actions input {
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    height: 40px;
+    padding: 0 0.5rem;
+    margin-right: 0.5rem;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.product-list {
+    display: grid;
+    gap: 16px; // Khoảng cách giữa các item
+    grid-template-columns: repeat(4, 1fr);
+}
+.product-card-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    // border: 1px solid red !important;
+}
+
+
+.product-card-item-img {
+    cursor: pointer;
+}
+
+.product-card-item-name {
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    -webkit-line-clamp: 1 !important;
+	line-clamp: 1 !important;
+
+
+}
+
+// Breakpoints
+// 2 cột trên màn hình nhỏ
+@media (max-width: 575.98px) {
+    .product-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+// trên màn hình sm
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .product-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    // trên màn hình md
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+// trên màn hình lg
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .product-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+// trên màn hình xl
+@media (min-width: 1200px) {
+    .product-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
